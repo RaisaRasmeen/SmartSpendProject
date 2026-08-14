@@ -70,3 +70,9 @@ searchInp.addEventListener('input',() => {
   filter.q=searchInp.value.toLowerCase();
   render();
 });
+themeBtn.addEventListener('click',() => {
+  const cur=document.documentElement.dataset.theme==='dark'
+      ?'light'
+      :'dark';
+  setTheme(cur);
+});
