@@ -62,3 +62,7 @@ filterType.addEventListener('change', () => {
   filter.type=filterType.value;
   render();
 });
+filterCat.addEventListener('change',() => {
+  filter.cat=filterCat.value;
+  render();
+});
