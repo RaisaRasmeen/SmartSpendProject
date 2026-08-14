@@ -83,3 +83,16 @@ function render() {
      totalInc.textContent = '৳' + income.toLocaleString();
   totalExp.textContent = '৳' + expense.toLocaleString();
   balanceEl.textContent = '৳' + (income - expense).toLocaleString();
+
+  const shown = txs.filter((t) => {
+    if (filter.type !== 'all' && t.type !== filter.type)
+      return false;
+ if (filter.cat !== 'all' && t.category !== filter.cat)
+      return false;
+     if (
+      filter.q &&
+      !t.title.toLowerCase().includes(filter.q)
+    )
+      return false;
+      return true;
+  });
