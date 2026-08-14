@@ -96,3 +96,7 @@ function render() {
       return false;
       return true;
   });
+   list.innerHTML=shown.map(rowHTML).join('');
+  empty.classList.toggle('hidden', shown.length > 0);
+ drawChart();
+}
