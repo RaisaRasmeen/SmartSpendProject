@@ -66,3 +66,7 @@ filterCat.addEventListener('change',() => {
   filter.cat=filterCat.value;
   render();
 });
+searchInp.addEventListener('input',() => {
+  filter.q=searchInp.value.toLowerCase();
+  render();
+});
