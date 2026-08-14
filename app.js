@@ -131,3 +131,15 @@ function drawChart() {
       '<p class="hint">Add some expenses to see the breakdown.</p>';
     return;
   }
+  chart.innerHTML = entries.map(([cat, amt]) => {
+      const pct = total? Math.round((amt / total) * 100): 0;
+   return `
+        <div class="bar">
+          <div class="top"><span>${cat}</span>
+            <span>৳${amt.toLocaleString()} · ${pct}%</span>
+          </div>
+    <div class="track"><div class="fill" style="width:${pct}%"></div>
+          </div>
+        </div>`;
+    }).join('');
+}
