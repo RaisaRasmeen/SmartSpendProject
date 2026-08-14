@@ -51,3 +51,14 @@ txs.unshift(tx);
   form.date.value = new Date().toISOString().slice(0, 10);
   render();
 });
+list.addEventListener('click',(e)=>{
+  const btn = e.target.closest('button[data-del]');
+  if (!btn) return;
+  txs=txs.filter((t)=> t.id !== btn.dataset.del);
+save();
+render();
+});
+filterType.addEventListener('change', () => {
+  filter.type=filterType.value;
+  render();
+});
