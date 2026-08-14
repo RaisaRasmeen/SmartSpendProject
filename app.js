@@ -174,3 +174,12 @@ function load() {
     return [];
   }
 }
+function initTheme() {
+  const saved =localStorage.getItem(THEME_KEY) || 'light';
+  setTheme(saved);
+}
+function setTheme(mode) {
+  document.documentElement.dataset.theme = mode;
+  localStorage.setItem(THEME_KEY, mode);
+  themeBtn.textContent =mode==='dark'?'Light':'Dark';
+}
