@@ -100,3 +100,19 @@ function render() {
   empty.classList.toggle('hidden', shown.length > 0);
  drawChart();
 }
+function rowHTML(t) {
+  const sign = t.type === 'income' ? '+' : '-';
+  const initial = (t.title[0] || '?').toUpperCase();
+
+  return `
+    <li class="tx ${t.type}">
+      <div class="icon">${initial}</div>
+      <div class="meta">
+        <span class="title">${escapeHtml(t.title)}</span>
+        <span class="sub">${t.category} · ${formatDate(t.date)}</span>
+      </div>
+     <span class="amt">${sign}৳${t.amount.toLocaleString()}</span>
+     <button data-del="${t.id}" aria-label="Delete">Delete</button>
+    </li>
+  `;
+}
