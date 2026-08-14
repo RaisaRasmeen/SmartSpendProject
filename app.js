@@ -10,3 +10,14 @@ let filter = { type: 'all', cat: 'all', q: '' };
 
 // ---- DOM refs ----
 const $ = (s) => document.querySelector(s);
+const form=$('#txForm');
+const list=$('#txList');
+const empty=$('#empty');
+const chart=$('#chart');
+const totalInc=$('#totalIncome');
+const totalExp=$('#totalExpense');
+const balanceEl=$('#balance');
+const filterType=$('#filterType');
+const filterCat=$('#filterCat');
+const searchInp=$('#search');
+const themeBtn=$('#themeBtn');
