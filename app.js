@@ -37,9 +37,17 @@ form.addEventListener('submit', (e) => {
   const fd = new FormData(form);
   const tx = {
     id: Date.now().toString(),
-    title: (fd.get('title') || '').toString().trim(),
+    title:(fd.get('title') || '').toString().trim(),
     amount: Number(fd.get('amount')),
     type: fd.get('type'),
     category: fd.get('category'),
     date: fd.get('date'),
   };
+
+if(!tx.title||!tx.amount||tx.amount <= 0)return;
+txs.unshift(tx);
+  save();
+  form.reset();
+  form.date.value = new Date().toISOString().slice(0, 10);
+  render();
+});
