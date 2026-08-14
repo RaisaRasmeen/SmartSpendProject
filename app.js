@@ -76,3 +76,10 @@ themeBtn.addEventListener('click',() => {
       :'dark';
   setTheme(cur);
 });
+// ---- functions ----
+function render() {
+  const income = txs.filter((t) => t.type === 'income').reduce((a, t) => a + t.amount, 0);
+     const expense = txs.filter((t) => t.type === 'expense').reduce((a, t) => a + t.amount, 0);
+     totalInc.textContent = '৳' + income.toLocaleString();
+  totalExp.textContent = '৳' + expense.toLocaleString();
+  balanceEl.textContent = '৳' + (income - expense).toLocaleString();
